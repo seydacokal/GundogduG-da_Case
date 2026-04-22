@@ -56,10 +56,10 @@ function kamyonuGuncelle() {
     const input = document.getElementById('gozInput');
     const sayi = parseInt(input.value);
     
-    if (sayi > 0 && sayi <= 12) {
+    if (sayi > 0 && sayi <= 10) {
         cizSutKamyonu(sayi);
     } else {
-        alert("Lütfen 1 ile 12 arasında bir sayı giriniz.");
+        alert("Lütfen 1 ile 10 arasında bir sayı giriniz.");
     }
 }
 
