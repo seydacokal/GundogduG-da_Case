@@ -1,0 +1,140 @@
+/* Genel Sayfa Düzeni */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #FCEBFF;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    overflow-x: hidden; /* Uzun tırlarda kayma olmasın */
+}
+
+.container { text-align: center; }
+
+/* Kamyonun Çizildiği Alan */
+.truck-canvas {
+    display: flex;
+    align-items: flex-end; 
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+    height: 300px;
+    perspective: 1000px; /* Hafif 3D derinlik hissi için */
+}
+
+/* KAMYON KABİNİ */
+.truck-cabin {
+    width: 150px;
+    height: 190px;
+    background: linear-gradient(135deg, #fbaed2 0%, #e86ca6 100%); /* Canlı geçiş */
+    border-radius: 70px 20px 0 0; 
+    position: relative;
+    z-index: 5;
+    border-bottom: 15px solid #222; 
+    box-shadow: inset -5px 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease;
+}
+
+/* Kapı Detayı*/
+.truck-cabin::after {
+    content: '';
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 60px;
+    height: 80px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    background: rgba(0,0,0,0.05);
+}
+
+/* Far ve Kapı Kolu */
+.truck-cabin::before {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    width: 20px;
+    height: 10px;
+    background-color: #fffa9e; /* Far rengi */
+    border-radius: 5px;
+    box-shadow: -10px 0 20px #fff700; /* Işık hüzmesi efekti */
+}
+
+/* Kabin Camı */
+.cabin-window {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 85px;
+    height: 65px;
+    background: linear-gradient(135deg, #d1ecf1 0%, #a5d8ff 100%);
+    border-radius: 40px 10px 10px 10px;
+    border: 3px solid #fff;
+    overflow: hidden;
+    z-index: 6;
+}
+
+/* Cam Parlaması */
+.cabin-window::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100px;
+    height: 30px;
+    background: rgba(255,255,255,0.4);
+    transform: rotate(-45deg);
+}
+
+/* SÜT TANKI GÖZLERİ - 3D Metalik Efekt */
+.tank-compartment {
+    width: 100px;
+    height: 160px;
+    /* Metalik silindir efekti için karmaşık gradient */
+    background: linear-gradient(to right, #e0e0e0 0%, #ffffff 20%, #ffffff 50%, #e0e0e0 80%, #c0c0c0 100%);
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 35px 35px 0 0;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.05);
+    animation: slideIn 0.6s ease-out forwards; /* Canlı giriş animasyonu */
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ARKA VE ÖN TEKERLEKLER - Gerçekçi Jant */
+.wheel {
+    position: absolute;
+    bottom: -35px;
+    width: 60px;
+    height: 60px;
+    background: #111;
+    border: 6px solid #333;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Jantın içindeki metalik kısım */
+.wheel::after {
+    content: '';
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, #acb78e 40%, #555 70%);
+    border-radius: 50%;
+    border: 2px solid #222;
+}
+
+/* Kontrol Paneli */
+.controls { margin-bottom: 40px; }
+input { padding: 12px; border-radius: 25px; border: 2px solid #e86ca6; width: 150px; text-align: center; font-size: 16px; outline: none; }
+button { padding: 12px 25px; background: #e86ca6; color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 10px rgba(232, 108, 166, 0.3); }
+button:hover { background: #d1508d; transform: translateY(-2px); }

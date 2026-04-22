@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gündoğdu Gıda - Süt Kamyonu Görselleştirme</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Dinamik Süt Taşıma Kamyonu</h1>
+        
+        <div class="controls">
+            <input type="number" id="gozInput" placeholder="Göz Sayısı Giriniz" min="1" max="10">
+            <button onclick="kamyonuGuncelle()">Kamyonu Oluştur</button>
+        </div>
+
+        <div id="truck-container" class="truck-canvas"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
